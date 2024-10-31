@@ -1,0 +1,256 @@
+.slider-container{
+ /*  height: 82vh; */
+  width: var(--widths);
+  height: 81.2vh;
+  position: relative;
+  margin: auto;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  overflow: hidden;
+}
+.slider-container img{
+  display:none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  }
+  .slider-container img.image-active {
+    display: block;
+    opacity: 80%;
+  }
+
+
+.slider-dot-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  top: 85%;
+  justify-content: center;
+  z-index: 95;
+  }
+
+.dot {
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0px 3px;
+  background-color: transparent;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  border-radius: 50%;
+  display: inline-block;
+  z-index: 95;
+  transition: all .5s ease-out;
+}
+  .dot:hover {
+    background-color: rgba(255, 208, 80, 0.573);
+  }
+  .slider-container:hover .dot{
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .slider-container:hover .dot.active{
+    background-color: rgba(255, 208, 80, 0.573);
+  }
+
+
+
+.fade{
+  animation-name: fade;
+  animation-duration: 1.5s;
+
+}
+@keyframes fade{
+  from {
+    opacity:0.7;
+  }
+  to {
+    opacity:1;
+  }
+}
+
+.btn-slider{
+  color: transparent;
+  cursor: pointer;
+  z-index: 90;
+  position: absolute;
+  top: 85%;
+  width: auto;
+  padding: 1rem;
+  margin-top: -3rem;
+  font-size: 40px;
+  font-weight: lighter;
+  border-radius: 0px 5px 5px 0px;
+  transition: all .5s ease-out;
+  display: block;
+}
+
+.btn-prev{
+  left:0;
+  transition: all .5s ease-out;
+}
+.btn-next{
+  right: 0;
+  transition: all .5s ease-out;
+}
+
+.slider-container:hover .btn-prev,
+.slider-container:hover .btn-next{
+  color: rgba(244, 244, 244, 1);
+}
+
+.icon-slider{
+  opacity: 0.8;
+  transition: all 0.15s ease;
+}
+
+.icon-slider:hover{
+  opacity: 0.8;
+  color:rgba(255, 208, 80, 0.573);
+}
+
+.icon-slider:active{
+  opacity: 0.8;
+}
+
+.icon-prev, .icon.next{
+  font-size: 35;
+}
+
+
+.area-text-nozi {
+  width: 22%;
+  top: 3%;
+  left: 39%;
+  position: absolute;
+  text-align: center;
+ }
+.text-nozi {
+  display: block !important;
+  height: auto !important;
+  margin: 10px auto 20px;
+  opacity: 100%;
+  text-align: center;
+ }
+
+.slide-title1,
+.slide-title2,
+.slide-text-left,
+.slide-text-right {
+ width: 100%;
+ height: 100%;
+ color: rgba(244, 244, 244, 1);
+ font-size: 50px;
+ position: absolute;
+ text-align: center;
+ top: 20%;
+ z-index: 10;
+}
+.slide-title1 {
+ top: 20%;
+ font-size: 50px;
+ color: rgba(244, 244, 244, 1);
+ font-weight:lighter;
+}
+.slide-title2 {
+ top: 30%;
+ font-size: 50px;
+ color: rgba(255, 208, 80, 1);
+ font-weight:normal;
+}
+.slide-text-left {
+ top: 70%;
+ text-align: left;
+ left: 5%;
+ font-size: 1.2rem;
+ width: 30%;
+ color: rgba(123, 123, 131, 1);
+ font-weight:normal;
+}
+.slide-text-right {
+ top: 70%;
+ text-align: right;
+ right: 5%;
+ font-size: 1.2rem;
+ width: 30%;
+ color: rgba(123, 123, 131, 1);
+ font-weight:normal;
+}
+
+
+.but_slider {
+  background-color: rgba(255, 208, 80, 0.573);
+  color:#191A1D;
+  font-size: 18px;
+  border: none;
+  height: 50px;
+  width: 340px;
+  transition: all .5s ease-out;
+  z-index: 2;
+  opacity: 1;
+  border-radius: 5px;
+  opacity: 0;
+  }
+.but_slider:hover {
+  cursor: pointer;
+  background-color: rgba(212, 159, 15, 1);
+  }
+
+.but-div{
+  width: 100%;
+  position: absolute;
+  top: 75%;
+  text-align: center;
+  }
+
+  .slider-container:hover .but_slider{
+    opacity: 1;
+  }
+
+
+  @media (max-width: 1300px) {
+  .area-text-nozi {
+    width: 30%;
+    left: 35%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .area-text-nozi {
+    width: 40%;
+    left: 30%;
+  }
+
+  .slider-container{
+     height: 70vh;
+   }
+}
+
+@media (max-width: 700px) {
+  .area-text-nozi {
+    width: 50%;
+    left: 25%;
+  }
+  .slider-container{
+    height: 40vh;
+  }
+
+
+.btn-slider{
+  display: none;
+}
+.slider-dot-container {
+  display: none;
+  }
+
+  .but_slider {
+    opacity: 1;
+    }
+}
+
+@media (max-width: 340px) {
+.but_slider {
+ width: 280px;
+  }
+}
+

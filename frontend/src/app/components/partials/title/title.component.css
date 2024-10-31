@@ -1,0 +1,12 @@
+h1 {
+  color: rgba(244, 244, 244, 1);
+  text-align: center;
+  font-weight: 700;
+  font-size: 27px;
+}
+
+@media (max-width: 500px){
+  h1{
+    font-size: 18px;
+  }
+}

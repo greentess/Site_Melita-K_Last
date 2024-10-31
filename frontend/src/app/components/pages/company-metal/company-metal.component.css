@@ -1,0 +1,314 @@
+.container-mini {
+  height:250px;
+  width:100%;
+  background-image: url('/assets/proizvodstvo/Заголовок2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-size: cover;
+}
+
+.minic{
+    width:80%;
+    padding-left: 10%;
+    padding-top: 4%;
+}
+.minic p{
+  color: rgb(212,213,215);
+  font-weight: 300;
+  margin-top: 10px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.second-minic{
+  height:350px;
+  width:48.5%;
+  padding-left: 1%;
+  position: absolute;
+  left: 50.5%;
+  top: 420px;
+  background-color: rgba(240, 248, 255, 0.67);
+  margin: 0;
+}
+
+h3{
+  color: rgb(212,213,215);
+  font-weight: 700;
+  font-size: 27px;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+
+.second-minic p{
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  margin-top: 6%;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  margin-left: 2%;
+  text-align: justify;
+  margin-right: 2%;
+}
+
+
+.container{
+  height:350px;
+  width:90%;
+  background-color: transparent;
+  margin-left:5%;
+    transition: 1s ease;
+}
+.each {
+  display: flex;
+  flex-direction: row;
+  height:100%;
+  width:100%;
+}
+
+.container-left {
+  height:100%;
+  width:53%;
+  background-color:   rgba(26, 34, 36, 1);
+  clip-path: polygon(95% 0.00%,
+                    95% 40%,
+                    100.00% 50%,
+                    95% 60%,
+                    95% 100%,
+                    0.00% 100%,
+                    0.00% 0.00%);
+z-index: 10;
+  transition: 1s ease;
+    align-content: center;
+}
+.container:hover .container-left{
+  background-color:  rgb(20, 21, 20);
+  transition: 1s ease;
+
+}
+.container-right {
+  height:100%;
+  width:50%;
+  margin-left: -3%;
+  z-index: 5;
+}
+
+.reverse-name{
+  clip-path: polygon(5% 0.00%,
+  100% 0.00%,
+  100% 100%,
+  5% 100.00%,
+  5% 60%,
+  0.00% 50%,
+  5% 40%,
+  5% 0.00%);
+  margin-left: -5%;
+  width: 52%;
+  align-content: center;
+}
+.reverse-logo {
+  margin-left: 0%;
+  z-index: 5;
+  width:53%
+}
+
+
+.minics{
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 6%;
+  margin-right: 3%;
+  align-items: center;
+  text-align: center;
+}
+.reverse{
+  margin-left: 9%;
+  margin-right: 3%;
+}
+
+.container-image-left {
+  height:100%;
+  width:100%;
+  background-size: cover;
+  overflow: hidden;
+  transition: 1s ease;
+  opacity: 0.8;
+  background-position: center;
+}
+.container-image-right {
+  height:100%;
+  width:100%;
+  background-size: cover;
+  overflow: hidden;
+	transition: 1s ease;
+  opacity: 0.8;
+  background-position: center;
+}
+.container:hover .container-image-right {
+  transition: 1s ease;
+  opacity: 1;
+}
+.container:hover .container-image-left {
+  transition: 1s ease;
+  opacity: 1;
+}
+
+.main{
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.content{
+  margin: 0;
+}
+
+.minics h2{
+  color:    rgba(255, 208, 80,1);
+  text-align: center;
+  margin-top: 0;
+  }
+  .minics p{
+    margin-bottom: 0;
+    color: rgb(212,213,215);
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 1.4;
+    }
+
+
+/* стили для мноточия '…' */
+.block-with-text {
+ /* спрятать текст если у более N строк */
+ overflow: hidden;
+ /* для установки '…' в абсолютную позицию */
+ position: relative;
+ /* используйте это значение для расчёта высоты блока */
+
+ /* max-height = line-height (1.2) * число строк (3) */
+ max-height: 15.4em;
+ /* исправлиление проблемы когда последнее слово не соединяется с правой стороны */
+ text-align: justify;
+ /* место для многоточия '…' */
+ padding-right: 3%;
+ color: rgb(212,213,215);
+}
+
+/* создаём многоточие … */
+.block-with-text:before {
+ /* многоточие в конце */
+ content: '…';
+ /* абсолютное позиционирование */
+ position: absolute;
+ /* установить позицию в правый нижний угол блока */
+ right: 0;
+ bottom: 0;
+}
+
+/* спрятать многоточие … если у нас есть текст, который меньше или равен количеству максимальный строк */
+.block-with-text:after {
+ content: "";
+ position: absolute;
+ /* установить позицию в правый нижний угол блока */
+ right: 0;
+ /* установить width и height */
+ width: 1em;
+ height: 1em;
+ margin-top: 0.2em;
+ /* цвет фона перед блоком */
+ background: rgba(26, 34, 36, 1);
+ color:  rgba(26, 34, 36, 1);
+ transition: 1s ease;
+}
+
+.container:hover .block-with-text:after{
+  background: rgb(20, 21, 20);
+  color:  rgb(20, 21, 20);
+    transition: 1s ease;
+}
+
+
+
+        @media (max-width: 1000px){
+      .minics p{
+        line-height: 1;
+      }
+      .block-with-text {
+        /* max-height = line-height (1.2) * число строк (3) */
+        max-height: 13em;
+      }
+      .container{
+        height:300px;
+        width:100%;
+        background-color: transparent;
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 800px){
+    .minic p{
+      margin:0;
+    }
+    .minic h3{
+      margin: 0;
+    }
+    .minics h2{
+      font-size: 18px;
+    }
+    .minics p{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 600px){
+   .minics h2{
+     font-size: 16px;
+   }
+   .minics p{
+     font-size: 16px;
+   }
+ }
+
+ @media (max-width: 540px){
+  .minic h3{
+    font-size: 18px;
+  }
+  .minic p{
+    font-size: 16px;
+  }
+  .container-mini{
+    height: 200px;
+  }
+}
+
+@media (max-width: 500px){
+  .container-mini{
+    height: 200px;
+
+  }
+  .minic p{
+    text-align: center;
+  }
+}
+
+
+ @media (max-width: 420px){
+  .block-with-text {
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-right: 10px;
+    max-width:150px;
+    max-height:11em
+   }
+   .container-mini{
+    height: 200px;
+  }
+}
+
+

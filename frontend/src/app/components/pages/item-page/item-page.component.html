@@ -1,0 +1,280 @@
+<div class="body">
+  <app-not-found
+    [visible]="!item"
+    notFoundMessage="Товар не найден :("
+    resetLinkText="Вернуться к каталогу">
+  </app-not-found>
+  <div *ngIf="item" class="wrapper">
+    <div class="info-container-mobile">
+      <h1 class="title">{{item.name}}</h1>
+      <h3 class="title-mini" *ngFor="let value of item.tags" routerLink="/home/tag/{{value}}">
+        {{value}}
+      </h3>
+    </div>
+    <!-- Янаги Ба -->
+    <div *ngIf="check_mod()&&!check_coverage()" class="img-container">
+      <div class="main-image-cont">
+        <img class="image" src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_handle![handle_index].name}}/{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="{{item.name}}.jpg" id="preview">
+      </div>
+      <div class="img-prev">
+        <div class="img-slide active">
+          <img  src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_handle![handle_index].name}}/1{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="1{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_handle![handle_index].name}}/2{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="2{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_handle![handle_index].name}}/3{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="3{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_handle![handle_index].name}}/4{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="4{{item.name}}.jpg" AppGallery>
+        </div>
+      </div>
+    </div>
+    <!-- Все остальные с модификациями -->
+    <div *ngIf="check_mod()&&check_coverage()&&check_handle()" class="img-container">
+      <div class="main-image-cont">
+        <img class="image" src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="{{item.name}}.jpg" id="preview">
+      </div>
+      <div class="img-prev">
+        <div class="img-slide active">
+          <img  src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/1{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="1{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/2{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="2{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/3{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="3{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_mod![mod_index].name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/4{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="4{{item.name}}.jpg" AppGallery>
+        </div>
+      </div>
+    </div>
+    <!-- Хоз быт -->
+    <div *ngIf="!check_mod()&&check_handle()&&!check_coverage()" class="img-container">
+      <div class="main-image-cont">
+        <img class="image" src="assets/gallery/{{item.name}}/{{vars_handle![handle_index].name}}/{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="{{item.name}}.jpg" id="preview">
+      </div>
+      <div class="img-prev">
+        <div class="img-slide active">
+          <img  src="assets/gallery/{{item.name}}/{{vars_handle![handle_index].name}}/1{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="1{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_handle![handle_index].name}}/2{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="2{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_handle![handle_index].name}}/3{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="3{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_handle![handle_index].name}}/4{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="4{{item.name}}.jpg" AppGallery>
+        </div>
+      </div>
+    </div>
+    <!-- без модификакаций и не хоз быт -->
+    <div *ngIf="!check_mod()&&check_handle()&&check_coverage()" class="img-container">
+      <div class="main-image-cont">
+        <img class="image" src="assets/gallery/{{item.name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="{{item.name}}.jpg" id="preview">
+      </div>
+      <div class="img-prev">
+        <div class="img-slide active">
+          <img  src="assets/gallery/{{item.name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/1{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="1{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/2{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="2{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/3{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="3{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.name}}/{{vars_coverage![coverage_index].name}},{{vars_handle![handle_index].name}}/4{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="4{{item.name}}.jpg" AppGallery>
+        </div>
+      </div>
+    </div>
+    <!-- прочее и услуги -->
+    <div *ngIf="(check_other()||check_uslugi())&&item.name!='Ультразвуковая ковка по технологии BoLi'" class="img-container">
+      <div class="main-image-cont">
+        <img class="image" src="assets/gallery/{{item.tags![0]}}/{{item.name}}/{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="{{item.name}}.jpg" id="preview">
+      </div>
+      <div class="img-prev">
+        <div class="img-slide active">
+          <img  src="assets/gallery/{{item.tags![0]}}/{{item.name}}/1{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="1{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.tags![0]}}/{{item.name}}/2{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="2{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.tags![0]}}/{{item.name}}/3{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="3{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.tags![0]}}/{{item.name}}/4{{item.name}}.jpg" (error) ="changeSource($event, this.no_photo)" alt="4{{item.name}}.jpg" AppGallery>
+        </div>
+      </div>
+    </div>
+
+    <!-- прочее и услуги -->
+    <div *ngIf="(item.name=='Ультразвуковая ковка по технологии BoLi')" class="img-container">
+      <div class="main-image-cont">
+        <img class="image" src="assets/gallery/{{item.tags![0]}}/{{item.name}}/{{item.name}}.gif" (error) ="changeSource($event, this.no_photo)" alt="{{item.name}}.jpg" id="preview">
+      </div>
+      <div class="img-prev">
+        <div class="img-slide active">
+          <img  src="assets/gallery/{{item.tags![0]}}/{{item.name}}/1{{item.name}}.gif" (error) ="changeSource($event, this.no_photo)" alt="1{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.tags![0]}}/{{item.name}}/2{{item.name}}.gif" (error) ="changeSource($event, this.no_photo)" alt="2{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.tags![0]}}/{{item.name}}/3{{item.name}}.gif" (error) ="changeSource($event, this.no_photo)" alt="3{{item.name}}.jpg" AppGallery>
+        </div>
+        <div class="img-slide">
+          <img src="assets/gallery/{{item.tags![0]}}/{{item.name}}/4{{item.name}}.gif" (error) ="changeSource($event, this.no_photo)" alt="4{{item.name}}.jpg" AppGallery>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!check_mod()&&!check_handle()&&!check_coverage()&&!check_other()&&!check_uslugi()" class="img-container">
+      <img class="image" src="assets/картинки/{{item.imageUrl}}" (error) ="changeSource($event, this.no_photo)" [alt]="item.name"/>
+    </div>
+
+    <div class="info-container">
+      <h1 class="title n">{{item.name}}</h1>
+      <h3 class="title-mini n" *ngFor="let value of item.tags" routerLink="/home/tag/{{value}}">
+        {{value}}
+      </h3>
+
+
+      <h4 *ngIf="!isEmpty(vars_coverage)" class="title-mini-yellow">Покрытие</h4>
+      <div *ngIf="!isEmpty(vars_coverage) && item.name!='Секач'" class="filter-container">
+        <div class="filter" *ngFor="let value of vars_coverage; let i = index ">
+          <div *ngIf="i!=coverage_index" (click)="coverage_index=i" class="filter-color" style="background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <div *ngIf="i==coverage_index"  class="filter-color-hover" style="background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <span  class="filter-title">{{value.name}}</span>
+        </div>
+      </div>
+      <div *ngIf="!isEmpty(vars_coverage) && item.name=='Секач'" class="filter-container">
+        <div class="filter" *ngFor="let value of vars_coverage; let i = index ">
+          <div class="filter-color-hover" style="background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <span  class="filter-title">{{value.name}}</span>
+        </div>
+      </div>
+      <h4 *ngIf="!isEmpty(vars_handle)" class="title-mini-yellow">Рукоять</h4>
+      <div *ngIf="!isEmpty(vars_handle)" class="filter-container">
+        <div class="filter" *ngFor="let value of vars_handle;let j = index">
+          <div *ngIf="j!=handle_index" (click)="handle_index=j" class="filter-color" style="background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <div *ngIf="j==handle_index"  class="filter-color-hover" style="background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <span *ngIf="value.name!='ТЭП'"  class="filter-title">{{value.name}}</span>
+          <span *ngIf="value.name=='ТЭП'"  class="filter-title">Термоэластопласт</span>
+        </div>
+      </div>
+
+      <h4 *ngIf="!isEmpty(vars_color)" class="title-mini-yellow">Цвет</h4>
+      <div *ngIf="!isEmpty(vars_color)" class="filter-container">
+        <div class="filter" *ngFor="let value of vars_color;let c = index">
+          <div *ngIf="c!=color_index" (click)="color_index=c" class="filter-color" style="background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <div *ngIf="c==color_index"  class="filter-color-hover" style="background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <span   class="filter-title">{{value.name}}</span>
+        </div>
+      </div>
+
+      <h4 *ngIf="!isEmpty(vars_mod)&&(item.name=='Витязь'|| item.name=='Витязь Х.О' ||item.name=='Самурай' || item.name=='Янаги Ба')" class="title-mini-yellow">Длина клинка</h4>
+      <!--  <h4 *ngIf="!isEmpty(vars_mod)&&(item.name=='Спартанец')" class="title-mini-yellow">Общая длина</h4> -->
+      <h4 *ngIf="!isEmpty(vars_mod)&&(item.name=='Ирбис-1 Х.О'||item.name=='Ирбис-1'||item.name=='Смерш-3'||item.name=='Смерш-4')" class="title-mini-yellow">Толщина обуха</h4>
+      <h4 *ngIf="!isEmpty(vars_mod)&&(item.name!='Витязь Х.О'&& item.name!='Витязь' && item.name!='Самурай'&&item.name!='Янаги Ба' && item.name!='Ирбис-1'&&item.name!='Ирбис-1 Х.О'&&item.name!='Смерш-3'&&item.name!='Смерш-4' )" class="title-mini-yellow">Модификации</h4>
+      <div class="custom-slider" *ngIf="!isEmpty(vars_mod)">
+        <div *ngFor="let value of vars_mod;let m = index" class="checking">
+          <input type="radio" id="{{m}}" name="mod" value="{{value.name}}" (click)="mod_index=m" (change)="selected_mod = '{{value.name}}'" [checked]="m == 0"  >
+          <span class="filter-title"> {{value.name}}</span>
+        </div>
+      </div>
+      <h4 *ngIf="!isEmpty(vars_complect)" class="title-mini-yellow">Ножны в комплекте</h4>
+      <div *ngIf="!isEmpty(vars_complect)" class="filter-container">
+        <div class="filter tooltiped" *ngFor="let value of vars_complect;let n = index">
+          <div *ngIf="n!=complect_index"  (click)="complect_index=n"  class="filter-color" style=" background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <div *ngIf="n==complect_index"  class="filter-color-hover" style="  background-image: url('assets/vars/{{value.name}}.svg');"></div>
+          <span *ngIf="n!=0" style="cursor: help;" class="filter-title">{{value.name}}</span>
+          <span *ngIf="n==0" class="filter-title">{{value.name}}</span>
+          <div class="tooltip">
+            <div class="tooltip-content">
+              <img *ngIf="value.name=='АБС-пластик'&& n!=0"    src="/assets/gallery/{{item.name}}/Ножны/{{value.name}}.jpg" (error) ="changeSource($event, this.no_photo)">
+              <img *ngIf="value.name=='Кайдекс'&& n!=0"  src="/assets/gallery/{{item.name}}/Ножны/{{value.name}}.jpg" (error) ="changeSource($event, this.no_photo)">
+              <img *ngIf="value.name=='Кордура'&& n!=0"  src="/assets/gallery/{{item.name}}/Ножны/{{value.name}}.jpg" (error) ="changeSource($event, this.no_photo)">
+              <img *ngIf="value.name=='Натуральная кожа'&& n!=0"  src="/assets/gallery/{{item.name}}/Ножны/{{value.name}}.jpg" (error) ="changeSource($event, this.no_photo)">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 *ngIf="!isEmpty(item.description)" class="title-mini-yellow">Описание</h4>
+      <p  class="desc" *ngFor="let value of readdesc(item.description)"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value}}</p>
+      <!-- <span class="price">{{item.price}} руб</span> -->
+      <h4 *ngIf="!isEmptymas(item.origins)&&item.tags![0]!='Услуги'"  class="title-mini-yellow">Технические характеристики</h4>
+      <div *ngIf="!isEmptymas(item.origins)" class="tech">
+        <div class="tech-left">
+          <div  *ngFor="let value of item.origins">
+            <div *ngFor="let name of value; let i = index">
+              <div class="tech-name" *ngIf="i%2 == 0">
+                {{name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tech-right">
+          <div  *ngFor="let value of item.origins">
+            <div *ngFor="let par of value; let i = index">
+              <div class="tech-par" *ngIf="i%2 != 0">
+                {{par}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h1 *ngIf="flag_rec" class="title-rec">Вы недавно просматривали</h1>
+    <div class="rec-cont-three">
+      <button class="prev" id="prev-but">
+        <i *ngIf="flag_rec"  class="fa fa-angle-double-left icon-slider icon-prev"></i>
+      </button>
+      <div  class="latest-container">
+        <div id="wrapper">
+          <div id="carousel">
+            <div id="content">
+              <div class="item" *ngFor="let recitem of recommenditems" >
+                <div *ngIf="flag_rec" class="container-rec">
+                  <img class="image-rec" src="assets/картинки/{{recitem.imageUrl}}" (error) ="changeSource($event, this.no_photo)"/>
+                  <div class="user-info-rec">
+                    <h2 class="titlik-rec">{{recitem.name}}</h2>
+                    <span class="text-rec" routerLink="/home/tag/{{recitem.tags![0]}}">{{recitem.tags![0]}}</span><br>
+                    <span class="text-rec n" routerLink="/home/tag/{{recitem.tags![1]}}">{{recitem.tags![1]}}</span>
+                    <button class="but-rec" routerLink="/home/item/{{recitem.id}}">Подробнее &rarr;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="next" id="next-but" >
+        <i *ngIf="flag_rec"  class="fa fa-angle-double-right icon-slider icon-next"></i>
+      </button>
+    </div>
+  </div>
+
+  <h1 class="title-rec">Вас может заинтересовать</h1>
+  <div class="uslugi2" >
+    <div class="catalog-rec2">
+      <div *ngFor="let u_item of items_uslugi" >
+      <div  *ngIf="item.name!=u_item.name" class="container-rec2">
+          <img class="image-rec2" src="assets/картинки/{{u_item.imageUrl}}" (error) ="changeSource($event, this.no_photo)"/>
+          <div class="user-info-rec2">
+            <h2 class="titlik-rec2">{{u_item.name}}</h2>
+            <!-- <span class="text-rec" routerLink="/home/tag/{{item.tags![0]}}">{{item.tags}}</span> -->
+            <button class="but-rec2" routerLink="/home/item/{{u_item.id}}">Подробнее &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.container{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 34, 36, 1);
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  color:#ffd050;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+img{
+  width: 15%;
+}
+
+h1{
+color: white;
+text-transform: lowercase;
+}
+@media (max-width: 1000px) {
+  img{
+    width: 30%;
+  }
+}
+
+@media (max-width: 500px) {
+  img{
+    width: 50%;
+  }
+}

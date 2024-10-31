@@ -1,0 +1,87 @@
+ .main-div{
+  margin-bottom: 10px;
+  margin-right: 10px;
+  max-height: 50px;
+  height: 50px;
+
+ }
+ .main-div-w{
+  max-height: 50px;
+  height: 50px;
+ }
+ .main-div input{
+  border-radius: 10rem 0 0 10rem;
+  border: none;
+  height: 30px;
+  max-width: 200px;
+  min-width:135px;
+  width: 10vw;
+  background-color: rgb(212,213,215);
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  outline: none;
+  font-weight: 400;
+  padding-left: 2vw;
+  color: #191B1C;
+
+}
+.main-div-w input{
+  border-radius: 10rem 0 0 10rem;
+  border: none;
+  height: 30px;
+  min-width: 150px;
+  width: 30vw;
+  background-color: rgb(212,213,215);
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  outline: none;
+  font-weight: 400;
+  padding-left: 2vw;
+  color: #191B1C;
+
+}
+
+div button{
+  height: 50px;
+  max-width: 70px;
+  width:3vw;
+  font-size: 18px;
+  border-radius: 0 10rem 10rem 0;
+
+  border: none;
+  background-color: #FFD050;
+  color: #191B1C;
+  opacity: 0.8;
+  outline: none;
+}
+
+div button:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+i {
+  color: #514218;
+  font-size: 18px;
+}
+
+.main-div-w .button-w{
+  height: 50px;
+  min-width: 70px;
+  width:5vw;
+  font-size: 18px;
+  border-radius: 0 10rem 10rem 0;
+
+  border: none;
+  background-color: #FFD050;
+  color: #191B1C;
+  opacity: 0.8;
+  outline: none;
+}
+
+.main-div-w .button-w:hover{
+  opacity: 1;
+  cursor: pointer;
+}

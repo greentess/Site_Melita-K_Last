@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="wrapper-left">
+    <div class="wrapper-left-top">
+        <div class="menu-item">EN</div>
+        <p class="b">/</p>
+        <div class="menu-item">RU</div>
+    </div>
+  </div>
+
+   <div class="wrapper-center">
+     <div class="wrapper-center-top">
+       <img class="logo" src="assets/logo/лог.png" routerLink="/start"/>
+     </div>
+
+     <div class="wrapper-center-bot">
+            <div id="item0" class="menu-item"> <div class="none"><app-search [w]="true"></app-search></div></div>
+            <div id="item1" class="menu-item" routerLink="/home/mainpage">Главная</div>
+            <div id="item2" class="menu-item" routerLink="/home/catalog">Каталог</div>
+            <div id="item3" class="menu-item" routerLink="/home/about-company">О компании</div>
+            <div id="item4" class="menu-item" routerLink="/home/contacts">Контакты</div>
+     </div>
+   </div>
+
+     <div class="wrapper-right">
+         <div class="wrapper-right-top" *ngIf="!isAuth">
+          <div class="search-div-none">
+            <app-search [w]="false"></app-search>
+          </div>
+          <input id="menu-toggle" type="checkbox" (change)="OnChange_Toggle($event)"/>
+
+          <label id="burger" class='menu-button-container' for="menu-toggle">
+           <div class='menu-button'></div>
+         </label>
+
+          </div>
+          <div class="wrapper-right-top" *ngIf="isAuth">
+            <div class="menu-item"><a  class="links" routerLink="/home/myorders">Заявки </a></div>
+            <div class="menu-item"><a  class="links" routerLink="/home/cart-page">Корзина </a></div>
+            <div class="menu-item"><a  class="links" (click)="logout()">Выход </a></div>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div>
+  <div class="container-mini">
+    <h1 class="title-main">Каталог</h1>
+    <h4 class="title-mini">Широкий выбор для профессионалов и любителей</h4>
+        <h4 class="title-mini2">Гражданские ножи</h4>
+  </div>
+
+  <div class="main-container" *ngIf="categories">
+    <div class="container" *ngFor="let tag of categories" routerLink="/home/tag/{{tag.name}}">
+
+        <div   class="info-container">
+          <h2 class="title">{{tag.name}}</h2>
+          <!--  <p class="text">{{tag.description}}</p> -->
+        </div>
+        <div class="image-container">
+          <div class="image-container">
+            <img class="image" src="assets/pred-catalog/{{tag.imageUrl}}.jpg" >
+            <img class="image-mobile" src="assets/pred-catalog/{{tag.imageUrl}}.png" >
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
