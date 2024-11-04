@@ -1,5 +1,4 @@
 import {Router} from 'express';
-import { sample_items, sample_tags } from '../data';
 import asyncHandler from 'express-async-handler';
 import { ItemModel } from '../models/item.model';
 import { CategoryModel } from '../models/category.model';
@@ -15,7 +14,7 @@ router.get("/seed", asyncHandler(
       return;
     }
 
-    await ItemModel.create(sample_items);
+    await ItemModel.create();
     res.send("Загрузка данных выполнена!");
 }
 ))
@@ -155,26 +154,6 @@ router.put('/', asyncHandler(
  res.send(item);
 	}
 ));
-
-/* router.put('/', asyncHandler(
-	async (req, res) => {
- var itemData = req.body.itemData;
- if(itemData!= null){
-  res.status(HTTP_BAD_REQUEST).send('пусто!');
-  return;
-}
- const item = await ItemModel.findById(req.body.itemData.id)
- if (item!=null){
- item.name = itemData.name;
- item.price = itemData.price;
- item.description = itemData.description;
- item.imageUrl = itemData.imageUrl;
- await item.save();
- }
- res.send(item);
-	}
-)); */
-
 
 
 export default router;

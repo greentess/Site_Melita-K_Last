@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { dilerss } from 'src/data';
+
 interface dilers {
   imageSrc:string;
   name:string;

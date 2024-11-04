@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { sample_tags } from 'src/data';
+
 import { Item } from '../shared/models/Item';
 import { Tag} from '../shared/models/Tag';
 import { ITEMS_BY_SEARCH_URL, ITEMS_BY_TAG_URL, ITEMS_TAGS_URL, ITEMS_URL, ITEM_BY_ID_URL } from '../shared/constants/urls';
@@ -87,29 +87,6 @@ export class ItemService {
     this.setFiltersToLocalStorage(filters);
   }
 
-
-
-/*   getLastItemsFromLocalStorage():Item[]{
-    const LastItemsJson=localStorage.getItem('LastItems');
-    return LastItemsJson? JSON.parse(LastItemsJson):[];
-  }
-
-  setLastItemsToLocalStorage(last_item:Item[]):void{
-    const unique = last_item.filter((value,index,items)=> items.indexOf(value)===index);
-    console.log(unique);
-    const LastItemsJson=JSON.stringify(unique);
-    localStorage.setItem('LastItems', LastItemsJson)
-    this.LastItemsSubject.next(unique);
-  }
-  clearLastItems(){
-    this.setLastItemsToLocalStorage([]);
-  } */
-
-
-
-
-
-
   addToLatest(item:Item):void{
     let latestItem=this.latest_items.find(x => x.id===item.id)
     if (latestItem)
@@ -135,8 +112,6 @@ export class ItemService {
   }
 
   setLatestToLocalStorage(latest_items:Item[]):void{
-   /*  const unique = last_item.filter((value,index,items)=> items.indexOf(value)===index);
-    console.log(unique); */
     const LastItemsJson=JSON.stringify(latest_items);
     localStorage.setItem('LastItems', LastItemsJson)
     this.latestSubject.next(latest_items);

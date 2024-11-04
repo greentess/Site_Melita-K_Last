@@ -82,12 +82,6 @@ export class MainInfoComponent implements OnInit {
 
 
     this.vk_photos_small=this.getRandomPhotos(this.vk_photos, 10)
-/*     this.vk_photos_small_mobile=this.vk_photos_small
-    let temp
-    temp=this.vk_photos_small_mobile.pop()
-    temp=this.vk_photos_small_mobile.pop()
-    temp=this.vk_photos_small_mobile.pop()
-    temp=this.vk_photos_small_mobile.pop() */
     this.vk_photos_small_mobile= this.vk_photos_small.filter((element) => {
       return this.vk_photos_small.indexOf(element) < 6;
     });

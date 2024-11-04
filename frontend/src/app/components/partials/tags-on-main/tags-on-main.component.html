@@ -10,7 +10,7 @@
 <body *ngIf="categories">
   <div class="crd crd--effect-2" *ngFor="let tag of categories" routerLink="/home/tag/{{tag.name}}" >
     <div class="crd-img"
-      style='background-image: url("assets/categories/{{tag.imageUrl}}.jpg");'>
+      style='background-image: url("assets/categories/{{tag.imageUrl}}.webp");'>
     </div>
     <div class="crd-info">
       <h2 class="crd-heading">{{tag.name}}</h2>

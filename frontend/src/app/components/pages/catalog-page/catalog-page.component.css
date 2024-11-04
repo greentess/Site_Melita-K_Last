@@ -223,7 +223,7 @@ box-sizing: border-box;
 .container-mini {
  min-height:300px;
  width:100%;
- background-image: url('/assets/catalog/Cat_Prev.png');
+ background-image: url('/assets/catalog/Cat_Prev.webp');
  background-repeat: no-repeat;
 /* привязываем фоновую картинку, чтобы она не двигалась */
  background-attachment: fixed;

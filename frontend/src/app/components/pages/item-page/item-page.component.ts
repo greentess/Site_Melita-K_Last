@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CartService } from 'src/app/services/cart.service';
+
 import { ItemService } from 'src/app/services/item.service';
 import { Item } from 'src/app/shared/models/Item';
 import { Observable } from 'rxjs';
@@ -47,7 +47,7 @@ export class ItemPageComponent implements OnInit {
   last_items:Item[]=[];
   newlast_items:Item[]=[];
   newnewlast_items:Item[]=[];
-  constructor(activatedRoute:ActivatedRoute, itemService:ItemService,private cartService:CartService, private router:Router) {
+  constructor(activatedRoute:ActivatedRoute, itemService:ItemService, private router:Router) {
 
 
 
@@ -57,15 +57,15 @@ export class ItemPageComponent implements OnInit {
     activatedRoute.params.subscribe((params)=>{
       if(params.id) itemService.getItembyId(params.id).subscribe(serverItem => {
         this.recommenditems = itemService.getLatestFromLocalStorage();
-        console.log("1",  this.recommenditems)
+        //console.log("1",  this.recommenditems)
 
         this.item = serverItem;
 
         this.recommenditems = this.recommenditems.filter((value =>value.name!==this.item.name))
         if(this.recommenditems.length>3)
           this.flag_rec=true
-        console.log('ЙЙЙ длина массива:',this.recommenditems.length)
-        console.log('ЙЙЙ флаг:',this.flag_rec)
+        //console.log('ЙЙЙ длина массива:',this.recommenditems.length)
+        //console.log('ЙЙЙ флаг:',this.flag_rec)
         itemService.addToLatest(this.item);
 /*         this.newlast_items.unshift(this.item);
         console.log( "3", this.last_items)
@@ -75,7 +75,7 @@ export class ItemPageComponent implements OnInit {
 
         itemService.setLastItemsToLocalStorage(this.newlast_items); */
         this.newlast_items=itemService.getLatestFromLocalStorage();
-        console.log( "2", this.newlast_items);
+        //console.log( "2", this.newlast_items);
          /*   itemService.clearLatest(); */
 
         this.vars_coverage = this.item.variants?.filter((value =>value.type==="Покрытие"))
@@ -111,7 +111,7 @@ export class ItemPageComponent implements OnInit {
         //   }
         // });
         nextbut.addEventListener("click", e => {
-          console.log('qwertyuytrewwdfgbhgfdsdbgfdfg')
+          //console.log('qwertyuytrewwdfgbhgfdsdbgfdfg')
           carousel.scrollBy(width + gap, 0);
           if (carousel.scrollWidth !== 0) {
             prevbut.style.visibility = "visible";
@@ -177,7 +177,7 @@ export class ItemPageComponent implements OnInit {
     activatedRoute.params.subscribe((params)=>{
       itemService.getAllItemsByTag(this.tag_uslugi).subscribe((serverItems) =>{
         this.items_uslugi = serverItems;
-        console.log(this.items_uslugi)
+        //console.log(this.items_uslugi)
       })
     })
 
@@ -248,12 +248,12 @@ changeSource(event:any, no:any) { event.target.src = no; }
   OnChange(selected: any): void {
 
   let index=selected.target.id;
-  console.log("индекс элемента с ончандже: ",index);
+  //console.log("индекс элемента с ончандже: ",index);
   if (selected.target.checked){
-    console.log("массив длина: ",this.vars_mod?.length)
+   // console.log("массив длина: ",this.vars_mod?.length)
     if(this.vars_mod?.length!=undefined){
     for(var i=0; i<=this.vars_mod.length;i++){
-      console.log("индексы в цикле : ",i," для ",this.vars_mod[i]);
+    //  console.log("индексы в цикле : ",i," для ",this.vars_mod[i]);
       if (i!=index){
         var element = <HTMLInputElement> document.getElementById(i.toString());
         element.checked = false;
@@ -317,42 +317,7 @@ find_complects(complect_items:Item[]){
 
 
 
-  addToCart(){
-    console.log(this.item.variants)
-/*
-    let vars_coverage = this.item.variants?.filter((value =>value.type==="Покрытие"))
-    let vars_handle = this.item.variants?.filter((value =>value.type==="Рукоять"))
-    let vars_color = this.item.variants?.filter((value =>value.type==="Цвет"))
-    let vars_mod = this.item.variants?.filter((value =>value.type==="Модификация"))
-    */
-    let color_name='';
-    let mod_name='';
-    let coverage_name='';
-    let handle_name='';
-
-    if (this.vars_color?.length==0) color_name=''
-    else color_name = this.vars_color![this.color_index].name
-
-    if (this.vars_mod?.length==0) mod_name=''
-    else mod_name=this.vars_mod![this.mod_index].name
-
-    if (this.vars_coverage?.length==0) coverage_name=''
-    else coverage_name = this.vars_coverage![this.coverage_index].name
-
-    if (this.vars_handle?.length==0) handle_name=''
-    else handle_name=this.vars_handle![this.handle_index].name
-
-    console.log(this.vars_coverage![this.coverage_index]);
-    console.log(this.coverage_index);
-    console.log(this.vars_handle![this.handle_index]);
-    console.log(this.handle_index);
-    console.log(this.vars_color![this.color_index]);
-    console.log(this.vars_mod![this.mod_index]);
-
-    this.cartService.addToCart(this.item, coverage_name, handle_name,color_name,mod_name);
-    this.router.navigateByUrl('/home/cart-page');
-  }
-
+  
 
   isEmpty(arr:any) {
     let count:number =0;

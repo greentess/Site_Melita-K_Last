@@ -10,7 +10,7 @@
 
    <div class="wrapper-center">
      <div class="wrapper-center-top">
-       <img class="logo" src="assets/logo/лог.png" routerLink="/start"/>
+       <img class="logo" src="assets/logo/logo.svg" routerLink="/start"/>
      </div>
 
      <div class="wrapper-center-bot">
@@ -23,7 +23,7 @@
    </div>
 
      <div class="wrapper-right">
-         <div class="wrapper-right-top" *ngIf="!isAuth">
+         <div class="wrapper-right-top">
           <div class="search-div-none">
             <app-search [w]="false"></app-search>
           </div>
@@ -32,12 +32,5 @@
           <label id="burger" class='menu-button-container' for="menu-toggle">
            <div class='menu-button'></div>
          </label>
-
-          </div>
-          <div class="wrapper-right-top" *ngIf="isAuth">
-            <div class="menu-item"><a  class="links" routerLink="/home/myorders">Заявки </a></div>
-            <div class="menu-item"><a  class="links" routerLink="/home/cart-page">Корзина </a></div>
-            <div class="menu-item"><a  class="links" (click)="logout()">Выход </a></div>
-            </div>
     </div>
 </div>

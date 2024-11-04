@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from 'src/app/services/cart.service';
-import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/shared/models/User';
 import { HostListener } from "@angular/core";
 
 @Component({
@@ -13,34 +10,11 @@ export class NavbarComponent implements OnInit {
   screenHeight: number | undefined;
   screenWidth: number | undefined;
   //cartQuantity=0;
-  user!:User;
   public getScreenWidth: any;
   public getScreenHeight: any;
 
-  constructor(cartService:CartService,private userService:UserService) {
-    //cartService.getCartObservable().subscribe((newCart) => {
-      //this.cartQuantity = newCart.totalCount;
-    //})
-
-
-    userService.userObservable.subscribe((newUser) => {
-      this.user = newUser;
-    })
+  constructor() {
    }
-
-
-/*    @HostListener('window:resize', ['$event'])
-   getScreenSize() {
-         this.screenHeight = window.innerHeight;
-         this.screenWidth = window.innerWidth;
-         console.log(this.screenHeight, this.screenWidth);
-         if(window.innerWidth>1000){
-          var b = <HTMLInputElement> document.getElementById("menu-toggle");
-          b.checked=true
-          console.log(b.checked);
-
-         }
-   } */
 
   ngOnInit(): void {
     this.getScreenWidth = window.innerWidth;
@@ -75,13 +49,6 @@ export class NavbarComponent implements OnInit {
     } */
   }
 
-  logout(){
-    this.userService.logout();
-  }
-
-  get isAuth(){
-    return this.user.token;
-  }
 
   OnChange_Toggle(selected: any): void {
     console.log(
