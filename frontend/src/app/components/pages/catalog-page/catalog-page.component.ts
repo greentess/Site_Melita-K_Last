@@ -16,7 +16,7 @@ import { filters, defaults_filters } from 'src/app/shared/interfaces/IFilters';
   styleUrls: ['./catalog-page.component.css']
 })
 export class CatalogPageComponent implements OnInit {
-
+  p: number = 1;
   public  all_filters: filters = this.itemService.getFiltersFromLocalStorage();
   no_photo:string="assets/картинки/НетФото.webp";
   filterrr_items:Item[]=[];
@@ -104,6 +104,7 @@ options_od: Options = {
 
   constructor(private itemService:ItemService, activatedRoute:ActivatedRoute) {
 
+
     const array_filters: filters = {
       ...defaults_filters
     };
@@ -147,7 +148,14 @@ options_od: Options = {
   ngOnInit(): void {
 
   }
-
+pageChanged(event: any){
+  this.p = event;
+  const screenWidth = window.innerWidth;
+  if(screenWidth>490)
+    window.scrollTo(0,330);
+  if(screenWidth<=490)
+    window.scrollTo(0,190);
+}
   open_filters(){
     var f = <HTMLInputElement> document.getElementById("f");
     f.style.display="block";
@@ -206,6 +214,7 @@ blocking_but(){
   changeSource(event:any, no:any) { event.target.src = no; }
 
   func(){
+    this.p=1;
     this.field = document.querySelector('input[name="item"]:checked');
     this.selectedField=this.field.id;
     if(this.selectedField=='P' || this.selectedField=='U'){

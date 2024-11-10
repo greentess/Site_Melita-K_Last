@@ -12,7 +12,7 @@
     <h1 class="title-rec ">Услуги</h1>
     <div class="catalog-rec ">
         <div  *ngFor="let item of items_uslugi" class="container-rec">
-            <img class="image-rec" src="assets/картинки/{{item.imageUrl}}" (error) ="changeSource($event, this.no_photo)"/>
+            <img loading="lazy" class="image-rec" src="assets/картинки/{{item.imageUrl}}" (error) ="changeSource($event, this.no_photo)"/>
             <div class="user-info-rec">
               <h2 class="titlik-rec">{{item.name}}</h2>
                   <!-- <span class="text-rec" routerLink="/home/tag/{{item.tags![0]}}">{{item.tags}}</span> -->
@@ -28,7 +28,7 @@
     <h1 class="title-rec2">Прочее</h1>
     <div class="catalog-rec ">
         <div  *ngFor="let item of items_prochee" class="container-rec w5">
-            <img class="image-rec" src="assets/картинки/{{item.imageUrl}}" (error) ="changeSource($event, this.no_photo)"/>
+            <img loading="lazy" class="image-rec" src="assets/картинки/{{item.imageUrl}}" (error) ="changeSource($event, this.no_photo)"/>
             <div class="user-info-rec">
               <h2 class="titlik-rec">{{item.tags![1]}}</h2>
               <button class="but-rec" routerLink="/home/tag/{{item.tags![1]}}">В каталог &rarr;</button>
@@ -51,10 +51,10 @@
 
     <div class="images">
       <div *ngFor="let vk_photo of this.vk_photos_small" class="photo">
-          <img  src="{{vk_photo.photoSrc}}"  (click)="GoTo('https://vk.com/melitak')" (error) ="changeSource($event, this.no_photo)" alt="photo" />
+          <img loading="lazy" src="{{vk_photo.photoSrc}}"  (click)="GoTo('https://vk.com/melitak')" (error) ="changeSource($event, this.no_photo)" alt="photo" />
       </div>
       <div *ngFor="let vk_photo of this.vk_photos_small_mobile" class="photo_mobile">
-        <img  src="{{vk_photo.photoSrc}}"  (click)="GoTo('https://vk.com/melitak')" (error) ="changeSource($event, this.no_photo)" alt="photo" />
+        <img loading="lazy" src="{{vk_photo.photoSrc}}"  (click)="GoTo('https://vk.com/melitak')" (error) ="changeSource($event, this.no_photo)" alt="photo" />
     </div>
     </div>
 

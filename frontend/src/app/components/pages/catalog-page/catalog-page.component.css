@@ -1,4 +1,52 @@
-[data-title]::after {
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background:  #FFD050;
+  color: #191B1C;
+  transition: background-color .5s;
+}
+.my-pagination ::ng-deep .ngx-pagination li {
+  background:  #b3b2af28;
+  border-radius: 100%;
+  transition: background-color .5s;
+}
+.my-pagination ::ng-deep .ngx-pagination li:hover {
+  background:  #FFD050;
+  color: #191B1C; 
+}
+.my-pagination ::ng-deep .ngx-pagination  {
+  float: right;
+  margin-right: 3%;
+}
+
+.my-pagination ::ng-deep .ngx-pagination a:hover {
+  background: transparent;
+}
+.my-pagination ::ng-deep .ngx-pagination .pagination-next,.my-pagination ::ng-deep .ngx-pagination .pagination-previous {
+  background: transparent;
+}
+.my-pagination ::ng-deep .ngx-pagination .pagination-next:hover ,.my-pagination ::ng-deep .ngx-pagination .pagination-previous:hover {
+  background: transparent;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .pagination-previous a:before,
+.my-pagination ::ng-deep  .ngx-pagination .pagination-previous.disabled:before,
+.my-pagination ::ng-deep .ngx-pagination .pagination-next a:after,
+.my-pagination ::ng-deep  .ngx-pagination .pagination-next.disabled:after  {
+  vertical-align: sub;
+  color: rgba(244, 244, 244, 0.577);
+  font-size: 40px;
+}
+.my-pagination ::ng-deep .ngx-pagination .pagination-previous:hover a:before,
+.my-pagination ::ng-deep  .ngx-pagination .pagination-previous:hover .disabled:before,
+.my-pagination ::ng-deep .ngx-pagination .pagination-next:hover a:after,
+.my-pagination ::ng-deep  .ngx-pagination .pagination-next:hover .disabled:after  {
+  vertical-align: sub;
+  color:  #FFD050;
+  font-size: 40px;
+}
+
+
+[
+  data-title]::after {
   content: attr(data-title); /* Выводим текст из атрибута data-title */
   position: absolute; /* Абсолютное позиционирование */
   left: 0; top: 1em; /* Положение подсказки */
@@ -709,6 +757,12 @@ h5 {
           .container{
             margin-left: 2vw;
             margin-right: 2vw;
+          }
+          .my-pagination ::ng-deep .ngx-pagination  {
+            float: none;
+            margin-right: 0%;
+            padding-left: 0;
+            text-align: center;
           }
         }
         @media (max-width: 720px) {

@@ -46,13 +46,13 @@
           </div>
         </div>
         <div class="container-right ">
-          <div class="container-image-right" style="background-image: url({{diler.imageSrc}}),url({{no_photo}});"></div>
+          <div class="container-image-right" loading="lazy" style="background-image: url({{diler.imageSrc}}),url({{no_photo}});"></div>
         </div>
       </div>
 
       <div  class="each" *ngIf="i%2 != 0" (click)="GoTo(diler.dilerUrl)">
         <div class="container-right reverse-logo ">
-          <div class="container-image-left"  style="background-image: url({{diler.imageSrc}}),url({{no_photo}});" >
+          <div class="container-image-left" loading="lazy" style="background-image: url({{diler.imageSrc}}),url({{no_photo}});" >
           </div>
         </div>
         <div class="container-left reverse-name">

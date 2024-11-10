@@ -30,14 +30,14 @@
 .container-big {
   height:600px;
   width:90%;
-  margin: 50px 5% 50px 5%;
+  margin: 50px 5% 50px 5%; 
   background-color: rgb(212,213,215);
 }
 
 .container-mini {
   height:300px;
   width:100%;
-  background-image: url('/assets/catalog/Overview.jpg');
+  background-image: url('/assets/catalog/Overview.webp');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -212,7 +212,7 @@ background-color:    rgb(212,213,215);
   width:100%;
   z-index: 10;
   min-height:600px;
-  background-image: url('/assets/about-company/Фон_Г.png');
+  background-image: url('/assets/about-company/Фон_Г.webp');
   background-repeat: no-repeat;
  /* привязываем фоновую картинку, чтобы она не двигалась */
   background-attachment: fixed;

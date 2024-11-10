@@ -180,11 +180,11 @@
       </app-not-found>
 
       <div class="catalog">
-        <div *ngFor="let item of filter_items | sort : selectedField" class="container" >
-            <img  class="image" src="assets/картинки/{{item.imageUrl}}" (error) ="changeSource($event, this.no_photo)"/>
+        <div *ngFor="let item of filter_items | sort : selectedField | paginate: { itemsPerPage: 16, currentPage: p }" class="container" >
+            <img  class="image" src="assets/картинки/{{item.imageUrl}}" loading="lazy" (error) ="changeSource($event, this.no_photo)"/>
 <!--             <img *ngIf="item.imageUrl=='Гравировка' || item.imageUrl=='Серрейтор' || item.imageUrl=='АдаптерБалон' || item.imageUrl=='КлипсаКайдекс' || item.imageUrl=='СпинкаВодолазная' || item.imageUrl=='КошкаВодолазная' || item.imageUrl=='НожныАдаптер'" class="image" src="assets/картинки/НетФото.jpg"/>
  -->
-            <div class="user-info">
+            <div class="user-info"> 
               <h2 class="titlik">{{item.name}}</h2>
                   <span class="text" routerLink="/home/tag/{{item.tags![0]}}">{{item.tags![0]}}</span><br>
                   <span class="text mobile-del" routerLink="/home/tag/{{item.tags![1]}}">{{item.tags![1]}}</span>
@@ -192,7 +192,11 @@
             </div>
         </div>
       </div>
-
+      <pagination-controls class="my-pagination" 
+        previousLabel=""
+        nextLabel=""
+        (pageChange)="pageChanged($event)">
+      </pagination-controls>
     </div>
   </div>
 </div>

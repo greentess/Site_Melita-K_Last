@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgOptimizedImage } from '@angular/common'
+
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -113,6 +116,8 @@ import { CompanyMetalComponent } from './components/pages/company-metal/company-
     ReactiveFormsModule,
     BrowserAnimationsModule,
     Ng5SliderModule,
+    NgxPaginationModule,
+    NgOptimizedImage,
     ToastrModule.forRoot({
       timeOut:3000,
       positionClass:'toast-bottom-right',
